@@ -1,0 +1,16 @@
+<div *ngIf="product">
+    <a href="" [title]="product.description">
+        <h2>
+            {{product.name}}
+        </h2>
+    </a>
+    <img [src]="product.image_url" alt=""/>
+    <p>{{product.price | currency}}</p>
+    <div *ngIf="product.description">
+        <h3>{{product.description}}</h3>
+    </div>
+    <div>
+        <p>{{product.category}}</p>
+    </div>
+    <button (click)="productRemove(product.id)">Remove</button>
+    </div>

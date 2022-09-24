@@ -1,0 +1,40 @@
+<div>
+    <h3>Product Reactive form</h3>
+    <form class="" [formGroup]="myForm" (ngSubmit)="addProduct(myForm)">
+      <label appHighlight="green" for="nameFormsControl">Name</label>
+      <input
+        appFocus
+        type="text"
+        id="nameFormsControl"
+        name="name"
+        class="form-control"
+        formControlName="prName"
+      ><br/>
+      <div class="alert alert-danger" *ngIf="myForm.controls['prName'].invalid || myForm.controls['prName'].untouched" style="color: red">invalid input</div>
+  
+      <label for="priceFormsControl">Price</label>
+      <input
+        class="form-control"
+        type="number"
+        id="priceFormsControl"
+        name="price"
+        formControlName="prPrice"
+      ><br/>
+      <div class="alert alert-danger" *ngIf="myForm.controls['prPrice'].invalid || myForm.controls['prPrice'].untouched" style="color: red">invalid input</div>
+
+      <label for="descFormsControl">Description</label>
+      <input
+      class="form-control"
+      type="text"
+      id="descFormsControl"
+      name="description"
+      formControlName="prDesc"
+      ><br/>
+      <div class="alert alert-danger" *ngIf="myForm.controls['prDesc'].invalid || myForm.controls['prDesc'].untouched" style="color: red">invalid input</div>
+
+      <select class="form-select" name="select" id="select"formControlName="prCateg">
+        <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+      </select>
+      <input class="btn btn-success mt-3" type="submit" [disabled]="myForm.invalid" value="Add"><br/>
+    </form>
+  </div>

@@ -1,0 +1,7 @@
+<app-product-form (add)="addProduct($event)"></app-product-form>
+<app-product-reactive-form (add)="addProduct($event)"></app-product-reactive-form>
+<div *ngFor="let product of products">
+<app-product-item [product]="product"
+(remove)="onProductRemove($event)"
+></app-product-item>
+</div>

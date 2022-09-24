@@ -1,0 +1,40 @@
+
+<div>
+    <h2>Product form</h2>
+    <form #myForm="ngForm" (ngSubmit)="addProduct(myForm)">
+      <label for="nameFormsControl">Name</label>
+        <input
+          [(ngModel)]="newProduct.name"
+          #name="ngModel"
+          type="text"
+          id="nameFormsControl"
+          name="name"
+          class="form-control"
+        />
+      <br/>
+      <label for="priceFormsControl">Price</label>
+        <input
+          [(ngModel)]="newProduct.price"
+          #price="ngModel"
+          type="number"
+          id="priceFormsControl"
+          name="price"
+        />
+      <br/>
+      <label for="descFormsControl">Description</label>
+        <input
+          #desc="ngModel"
+          [(ngModel)]="newProduct.description"
+          type="text"
+          id="descFormsControl"
+          name="description"
+        />
+      <br/>
+      <label for="select">Categories</label>
+      <select name="select" id="select"
+        [(ngModel)]="newProduct.category">
+      <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+      </select>
+      <input type="submit" [disabled]="myForm.invalid" value="Add"/>
+    </form>
+  </div>
